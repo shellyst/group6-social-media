@@ -1,4 +1,4 @@
-const { Model, Datatypes } = require('sequelize');
+const { Model, Datatypes, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 // Create Post Model
@@ -13,20 +13,20 @@ Post.init (
             primaryKey: true,
             autoIncrement: true
         },
-        post_url: {
-            type: Datatypes.STRING,
-            allowNull: false,
-            validate: {
-                isURL: true
-            }
-        },
         author_id: {
             type: Datatypes.INTEGER,
+            allowNull: false,
             // Create reference to the User model
             references: {
                 model: 'user',
                 key: 'id'
             }
+        },
+        // Post Type
+        // Used for discerning whether it's a text post, image or video
+        post_type: {
+            type: DataTypes.STRING,
+            allowNull: false
         },
         // Featured image for post
         featured_image: {
@@ -41,6 +41,14 @@ Post.init (
         },
         // Link content of post
         content_link: {
+            type: Datatypes.STRING,
+            allowNull: true,
+            validate: {
+                isURL: true
+            }
+        },
+        // Video 
+        video: {
             type: Datatypes.STRING,
             allowNull: true,
             validate: {
