@@ -1,8 +1,7 @@
 const router = require('express').Router();
 
-const res = require('express/lib/response');
 // Load the Post model
-const { Post } = require('../../models');
+const Post = require('../../models/Post');
 
 // Get all posts
 router.get('/', (request, response) => {
@@ -21,13 +20,13 @@ router.get('/', (request, response) => {
     })
     // Process the response from DB call
     .then(retrievedData => response.json(retrievedData))
-    .catch((error) => {
+    .catch(error => {
         response.status(500).json(error);
-    })
+    });
 });
 
 // Get a single post
-router.get('/', (request, response) => {
+router.get('/:id', (request, response) => {
     Post.findOne({
 
         // Search parameters/conditions
@@ -50,7 +49,7 @@ router.get('/', (request, response) => {
     .then(retrievedData => response.json(retrievedData))
     .catch((err) => {
         response.status(500).json(err);
-    })
+    });
 });
 
 // Post a single post
@@ -78,7 +77,7 @@ router.post('/', (request, response) => {
     .then(jsonInput => response.json(jsonInput))
     .catch(error => {
         response.status(500).json(error);
-    })
+    });
 });
 
 // Update a single post
@@ -105,7 +104,7 @@ router.put('/:id', (request, response) => {
     })
     .catch(error => {
         response.status(500).json(error);
-    })
+    });
 });
 
 // Delete a post
@@ -123,5 +122,7 @@ router.delete('/:id', (request, response) => {
     })
     .catch(error => {
         res.status(500).json(error);
-    })
-})
+    });
+});
+
+module.exports = router;
