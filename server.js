@@ -1,7 +1,7 @@
 const express = require('express');
 
 // Import the routes
-const routes = require('./routes');
+const routes = require('./controllers');
 
 // Import the connection settings
 const connection = require('./config/connection');
