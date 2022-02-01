@@ -9,6 +9,8 @@ const connection = require("./config/connection");
 const session = require("express-session");
 const sequelize = require("./config/connection");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
+const app = express();
+const PORT = process.env.PORT || 3002;
 
 const sess = {
   secret: "Super secret secret",
@@ -22,8 +24,6 @@ const sess = {
 
 app.use(session(sess));
 
-const app = express();
-const PORT = process.env.PORT || 3002;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

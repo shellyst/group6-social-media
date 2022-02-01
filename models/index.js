@@ -12,15 +12,19 @@ Post.belongsTo(User, {
   onDelete: "SET NULL",
 });
 
-User.belongsToMany(Post, {
-  foreignKey: "user_id",
-  onDelete: "SET NULL",
-});
+// --------BROKEN----------------
 
-Post.belongsToMany(User, {
-  foreignKey: "post_id",
-  onDelete: "SET NULL",
-});
+// User.belongsToMany(Post, {
+//   foreignKey: "user_id",
+//   onDelete: "SET NULL",
+// });
+
+// // Post.belongsToMany(User, {
+// //   foreignKey: "post_id",
+// //   onDelete: "SET NULL",
+// // });
+
+// ------------------------------
 
 Comment.belongsTo(User, {
   foreignKey: "user_id",

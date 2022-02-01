@@ -17,10 +17,10 @@ Post.init (
             type: DataTypes.INTEGER,
             allowNull: false,
             // Create reference to the User model
-            /* references: {
+            references: {
                 model: 'user',
                 key: 'id'
-            } */
+            } 
         },
         // Post Type
         // Used for discerning whether it's a text post, image or video
