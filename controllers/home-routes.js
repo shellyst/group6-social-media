@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const sequelize = require('../config/connection')
+// const sequelize = require('../config/connection')
 const { Post, User, Comment } = require('../models')
 
 // route to login
@@ -11,7 +11,7 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
-// tentative route to display all posts(and there comments) assuming user is logged in - this will still require session to work porperly.
+// tentative route to display all posts(and there comments) assuming user is logged in - this will still require session to work properly.
 router.get('/', (req, res) => {
     console.log(req.session)
     Post.findAll({

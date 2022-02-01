@@ -1,9 +1,9 @@
 
-
+const sequelize = require('../../config/connection');
 const router = require('express').Router();
-
+const { User, Post, Comment } = require("../../models");
 // Load the Post model
-const Post = require('../../models/Post');
+// const Post = require('../../models/Post');
 
 // Get all posts
 router.get('/', (request, response) => {
@@ -13,11 +13,11 @@ router.get('/', (request, response) => {
         attributes: [
             'id',
             'author_id',
-            'post_type',
-            'featured_image',
+            // 'post_type',
+            // 'featured_image',
             'content_text',
-            'content_link',
-            'video'
+        //     'content_link',
+        //     'video'
         ]
     })
     // Process the response from DB call
@@ -40,11 +40,11 @@ router.get('/:id', (request, response) => {
         attributes: [
             'id',
             'author_id',
-            'post_type',
-            'featured_image',
+            // 'post_type',
+            // 'featured_image',
             'content_text',
-            'content_link',
-            'video'
+            // 'content_link',
+            // 'video'
         ]
     })
     // Process the response from DB call

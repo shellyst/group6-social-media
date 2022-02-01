@@ -1,9 +1,6 @@
 const router = require("express").Router();
 const { User, Post, Comment } = require("../../models");
 
-// Load the User model.
-const User = require("../../models/User");
-
 router.get("/", (req, res) => {
   User.findAll({
     attributes: { exclude: ["password"] },
@@ -28,11 +25,9 @@ router.get("/:id", (req, res) => {
         attributes: [
           "id",
           "author_id",
-          "post_type",
-          "featured_image",
+         "title",
           "content_text",
-          "content_link",
-          "video",
+          
         ],
       },
       {
@@ -61,19 +56,25 @@ router.post("/", (req, res) => {
     email: req.body.email,
     password: req.body.password,
   })
-    .then((dbUserData) => {
-      req.session.save(() => {
-        req.session.user_id = dbUserData.id;
-        req.session.username = dbUserData.username;
-        req.session.loggedIn = true;
+    // .then((dbUserData) => {
+    //   req.session.save(() => {
+    //     req.session.user_id = dbUserData.id;
+    //     req.session.username = dbUserData.username;
+    //     req.session.loggedIn = true;
 
-        res.json(dbUserData);
-      });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+    //     res.json(dbUserData);
+    //   });
+    // })
+    // .catch((err) => {
+    //   console.log(err);
+    //   res.status(500).json(err);
+    // });
+
+    .then(dbUserData => res.json(dbUserData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 // Update a user.
@@ -115,3 +116,5 @@ router.delete("/:id", (req, res) => {
       res.status(500).json(err);
     });
 });
+
+module.exports = router;
