@@ -11,7 +11,7 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
-// tentative route to display all posts(and there comments) assuming user is logged in - this will still require session to work properly.
+// tentative route to display all posts(and there comments) assuming user is logged in - this will still require session to work porperly.
 router.get('/', (req, res) => {
     console.log(req.session)
     Post.findAll({
