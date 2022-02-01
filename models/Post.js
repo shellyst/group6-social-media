@@ -29,11 +29,10 @@ Post.init (
         //     allowNull: false
         // },
         // // Featured image for post
-        // featured_image: {
-        //     // Subject to change. Depends on how images will be stored
-        //     type: DataTypes.STRING,
-        //     allowNull: true
-        // },
+        featured_image: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
         // Text content of post
         content_text: {
             type: DataTypes.STRING,
