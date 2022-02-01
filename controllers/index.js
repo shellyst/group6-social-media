@@ -11,7 +11,7 @@ const apiRoutes = require('./api');
 
 router.use('/api', apiRoutes);
 //created
-router.use('/',homeRoutes)
+router.use('/', homeRoutes);
 
 router.use((req, res) => {
   res.status(404).end();

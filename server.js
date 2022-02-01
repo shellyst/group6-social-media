@@ -38,25 +38,25 @@
 // });
 
 
-
-const express = require('express');
-const routes = require('./controllers');
 const path = require('path');
+const express = require('express');
 const exphbs = require('express-handlebars');
-const hbs = exphbs.create({});
 
+const routes = require('./controllers');
 const sequelize = require('./config/connection');
 const { json } = require('express/lib/response');
 
 const app = express();
 const PORT = process.env.PORT || 3002;
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+const hbs = exphbs.create({});
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
 
 //turn on Routes
 app.use(routes);
@@ -66,5 +66,5 @@ app.use(routes);
 // The "sync" part means that this is Sequelize taking the models and connecting them to associated database tables.
 // If it doesn't find a table, it'll create it for you!
 sequelize.sync({ force: false }).then(() => {
-    app.listen(PORT, () => console.log('Now Listening'));
+    app.listen(PORT, () => console.log('Now Listening on port ' + PORT));
 });

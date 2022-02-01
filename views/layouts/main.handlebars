@@ -11,110 +11,39 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <!-- custom css file link  -->
-    <link rel="stylesheet" href="../../public/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
 
 </head>
 
 <body>
 
     <!-- header section starts  -->
-
     <header class="header">
-
         <a href="#" class="logo">
-            <img src="images/petbook logo.png" alt="">
+            <img src="/images/petbook_logo.png" alt="">
         </a>
-
         <nav class="navbar">
             {{#if loggedIn}}
-            <a href="#home">home</a>
+            <a href="#home">Home</a>
             <a href="#contact">Help Support</a>
-            <a href="#dashboard">dashboard</a>
-             <a href="/dashboard/create/" class="navbar-item is-hoverable pt-1 mr-4">create post</a>
+            <a href="#dashboard">Dashboard</a>
+             <a href="/dashboard/create/" class="navbar-item is-hoverable pt-1 mr-4">Create post</a>
             <a href="/login.html" class="btn">Log out</a>
             {{else}}
-            <a href="#home">home</a>
-            <a>login</a>
+            <a href="#home">Home</a>
+            <a href="/login">Login</a>
+            {{/if}}
         </nav>
-
-
-
-        {{!-- <div class="logout-container">
-
-            
-        </div> --}}
+        <!--{{!-- <div class="logout-container">
+        </div> --}} -->
 
     </header>
-
     <!-- header section ends -->
- <main>
+
+    <!-- Handlebar items in "views" folder is displayed here-->
     {{{body}}}
- </main>
-
-    <section class="home" id="home">
-
-        <h1 class="heading"> Your <span>Dashboard</span> </h1>
-
-        <div class="box-container">
-
-            <div class="box">
-                <div class="icons">
-
-                    <a href="#" class="fas fa-heart"></a>
-                    <a href="#" class="fas fa-eye"></a>
-                </div>
-                <div class="image">
-                    <img src="images/petbook logo.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>My Post</h3>
-
-
-                </div>
-            </div>
-
-            <div class="box">
-                <div class="icons">
-
-                    <a href="#" class="fas fa-heart"></a>
-                    <a href="#" class="fas fa-eye"></a>
-                </div>
-                <div class="image">
-                    <img src="images/petbook logo.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>My Post</h3>
-
-
-                </div>
-            </div>
-
-            <div class="box">
-                <div class="icons">
-
-                    <a href="#" class="fas fa-heart"></a>
-                    <a href="#" class="fas fa-eye"></a>
-                </div>
-                <div class="image">
-                    <img src="images/petbook logo.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>My Post</h3>
-
-                </div>
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-
-    
 
     <!-- footer section starts  -->
-
     <section class="footer">
 
         <div class="share">
@@ -133,16 +62,10 @@
         <div class="credit"> all rights reserved</div>
 
     </section>
-
     <!-- footer section ends -->
 
-
-
-
-
     <!-- custom js file link  -->
-    <script src="js/script.js"></script>
+    <script src="/javascript/script.js"></script>
 
 </body>
-
 </html>
