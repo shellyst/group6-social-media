@@ -1,9 +1,6 @@
 const router = require("express").Router();
 const { User, Post, Comment } = require("../../models");
 
-// Load the User model.
-const User = require("../../models/User");
-
 router.get("/", (req, res) => {
   User.findAll({
     attributes: { exclude: ["password"] },
@@ -115,3 +112,5 @@ router.delete("/:id", (req, res) => {
       res.status(500).json(err);
     });
 });
+
+module.exports = router
