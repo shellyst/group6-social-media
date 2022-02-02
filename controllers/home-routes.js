@@ -8,6 +8,7 @@ router.get('/login', (req, res) => {
         res.redirect('/')
         return
     } */
+    console.log("Login route is working");
     res.render('login');
 });
 

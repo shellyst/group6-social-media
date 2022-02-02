@@ -1,20 +1,18 @@
-const square = document.getElementById("square");
-const frontSide = document.getElementById("frontSide");
-const rightSide = document.getElementById("rightSide");
-
-
-
+/* const square = document.getElementById("#square");
+const frontSide = document.getElementById("#frontSide");
+const rightSide = document.getElementById("#rightSide"); */
 
 
 async function loginFormHandler(event) {
+    console.log("loginFormHandler is working");
     event.preventDefault();
   
-    const email = document.querySelector('#email').value.trim();
+    /* const email = document.querySelector('#email').value.trim();
     const password = document.querySelector('#password').value.trim();
   
     if (email && password) {
-      const response = await fetch('/api/users/login', {
-        method: 'post',
+      const response = await fetch('/login', {
+        method: 'get',
         body: JSON.stringify({
           email,
           password
@@ -23,11 +21,12 @@ async function loginFormHandler(event) {
       });
   
       if (response.ok) {
-        document.location.replace('/dashboard');
+        document.location.replace('/');
       } else {
         alert(response.statusText);
       }
-    }
+    } */
+    document.location.replace('/');
   }
 
   document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
@@ -66,7 +65,7 @@ document.querySelector('.signup-form').addEventListener('submit', signupFormHand
 
 
 
-frontSide.addEventListener("click", () => {
+/* frontSide.addEventListener("click", () => {
   frontSide.style.display = "none";
   rightSide.style.display = "block";
   square.style.transform = "rotate3d(0, 0, 0, 90deg)";
@@ -78,5 +77,5 @@ rightSide.addEventListener("click", () => {
   frontSide.style.display = "block";
   square.style.transform = "rotate3d(0, -1, 0, 90deg)";
   document.title = "Sign up page";
-});
+}); */
 
