@@ -1,16 +1,16 @@
-<h1 style="color:green;">THIS IS FROM login.handlebars</h1>
- <div class="main">
+{{!-- <link rel="stylesheet" href="/public/stylesheets/login-style.css"> --}}
+<div class="main">
         <div class="container">
             <div id="square">
-                <div class="front">
-                    <h1>Login</h1>
-                    <form action="#" method="post" class="login-form">
+                <div class="right">
+                    <h1>Create a new account</h1>
+                    <form action="#" method="post" class="signup-form">
                         <input required type="email" name="email" id="email" placeholder="Email" />
+                        <input required type="text" name="fullName" id="fullName" placeholder="Full name" />
                         <input required type="password" name="password" id="password" placeholder="Password" />
                         <button type="submit">Submit</button>
                     </form>
                 </div>
-               
                
             </div>
           
@@ -19,4 +19,4 @@
    
 
 <!-- Load scripts that are relevant to the login page-->
-<script src="/javascript/login.js"></script>
+<script src="/javascript/signup.js"></script>

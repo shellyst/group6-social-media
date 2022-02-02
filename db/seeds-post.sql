@@ -1,6 +1,6 @@
 USE group6_social_media_db;
-INSERT INTO post (id, author_id, featured_image, content_text)
+INSERT INTO post (id, author_id, featured_image, content_text )
 VALUES
-    (1, 1, 'https://i.imgur.com/Vra4zi2.jpeg', 'Wheres that grinder!?'),
-    (2, 1, 'https://external-preview.redd.it/T33E6aUn64ai0-HDnkh-0mykEm6r6yfm8v2V678nzFY.jpg?auto=webp&s=1dec68c0c143a37cf514b7f6b6195db1778e641b', 'Hello friend!'),
-    (3, 1, 'https://miro.medium.com/max/1400/0*HFIwReakDWXPb8um', 'Hello Missy!');
+    (1, 1, 'https://educaloi.qc.ca/wp-content/uploads/507810382_1200x563.jpg', 'Wheres that grinder!?'),
+    (2, 1, 'https://educaloi.qc.ca/wp-content/uploads/507810382_1200x563.jpg', 'Hello friend!'),
+    (3, 1, 'https://educaloi.qc.ca/wp-content/uploads/507810382_1200x563.jpg', 'Hello Missy!');
