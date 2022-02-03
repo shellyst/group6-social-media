@@ -1,4 +1,4 @@
-<h1 style="color:green;">THIS IS FROM login.handlebars</h1>
+{{!-- <h1 style="color:green;">THIS IS FROM login.handlebars</h1>
  <div class="main">
         <div class="container">
             <div id="square">
@@ -19,4 +19,68 @@
    
 
 <!-- Load scripts that are relevant to the login page-->
-<script src="/javascript/login.js"></script>
+<script src="/javascript/login.js"></script> --}}
+
+
+
+
+
+ <div class="mainl">
+        <div class="containerl">
+            <div id="square">
+                <div class="front">
+<form class="login-form">
+     <input required type="email" name="email" id="email" placeholder="Email" />
+                        <input required type="password" name="password" id="password" placeholder="Password" />
+                        <button type="submit">Submit</button>
+</form>
+</div>
+ <div class="right">
+                    <h1>Create a new account</h1>
+                   <form class="signup-form">
+                        
+  <input required type="email" name="email" id="email" placeholder="Email" />
+                        <input required type="text" name="fullName" id="fullName" placeholder="Full name" />
+                        <input required type="password" name="password" id="password" placeholder="Password" />
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <div class="actions">
+               
+                <button id="frontSide" type="button" class="login">Login</button>
+                <button id="rightSide" type="button" class="signup">Sign up</button>
+            </div>
+</div>
+</div>
+</div> 
+
+
+{<script>
+    const square = document.getElementById("square");
+const frontSide = document.getElementById("frontSide");
+const rightSide = document.getElementById("rightSide");
+
+
+frontSide.addEventListener("click", () => {
+  frontSide.style.display = "none";
+  rightSide.style.display = "block";
+
+  square.style.transform = "rotate3d(0, 0, 0, 90deg)";
+  document.title = "Login page";
+});
+
+rightSide.addEventListener("click", () => {
+  rightSide.style.display = "none";
+  frontSide.style.display = "block";
+ 
+  square.style.transform = "rotate3d(0, -1, 0, 90deg)";
+  document.title = "Sign up page";
+});
+</script>
+
+
+
+ <script src="/javascript/login.js"></script>
+  <script src="/javascript/signup.js"></script>
+   

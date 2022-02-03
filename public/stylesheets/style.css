@@ -331,7 +331,7 @@ section {
     color: var(--main-color);
 }
 
-.main {
+.mainl {
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -342,7 +342,7 @@ section {
     background-position: bottom;
 }
 
-.container {
+.containerl {
     width: 100%;
     height: 100%;
     padding: 20px;
@@ -357,8 +357,8 @@ section {
 #square {
     display: flex;
     min-width: 300px;
-    min-height: 300px;
-    margin-bottom: 100px;
+    min-height: 350px;
+    /* margin-bottom: 100px; */
     justify-content: center;
     transform-style: preserve-3d;
     transition: all 0.3s ease-in;
@@ -380,6 +380,7 @@ section {
     box-shadow: 3px 3px 5px #012a4a;
 }
 
+
 .actions button {
     border: 0;
     outline: none;
@@ -390,24 +391,31 @@ section {
     background-color: grey;
 }
 
-.container h1 {
+.containerl h1 {
     font-size: 35px;
     margin-bottom: 15px;
 }
 
-.container form {
+.containerl form {
     width: 100%;
     display: flex;
     flex-direction: column;
 }
 
-.container form input,
-.container form button,
-.container form h5 {
+.right {
+    transform: rotateY(90deg) translateZ(50px);
+  } 
+  
+  .login, .signup {
+      margin-top: 10px;
+  }
+.containerl form input,
+.containerl form button,
+.containerl form h5 {
     margin-bottom: 15px;
 }
 
-.container form input {
+.containerl form input {
     border: 0;
     padding: 10px 8px;
     min-height: 40px;
@@ -416,7 +424,7 @@ section {
     box-sizing: border-box;
 }
 
-.container form button {
+.containerl form button {
     border: 0;
     padding: 10px 0;
     outline: none;
@@ -430,16 +438,16 @@ section {
     display: none;
 }
 
-.container .actions {
+.containerl .actions {
     display: flex;
 }
 
-.container .actions button {
+.containerl .actions button {
     margin-right: 10px;
 }
 
 @media (min-width: 600px) {
-    .container {
+    .containerl {
         width: 450px;
         padding: 50px 100px;
         height: 450px;
