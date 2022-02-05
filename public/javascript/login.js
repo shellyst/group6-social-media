@@ -1,3 +1,5 @@
+
+// not sure if any of this is actually being used, we should double check that 
 const square = document.getElementById("#square");
 const frontSide = document.getElementById("#frontSide");
 const rightSide = document.getElementById("#rightSide");
@@ -26,10 +28,14 @@ async function loginFormHandler(event) {
         alert(response.statusText);
       }
     } 
-    // document.location.replace('/');
 }
 
 document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
+
+
+
+// ------SIGN UP STUFF SHOULD BE MOVED TO ITS OWN JS FILE------
+
 
 
 // async function signupFormHandler(event) {

@@ -1,27 +1,29 @@
 const router = require("express").Router();
 const { User, Post, Comment } = require("../../models");
 
+// THIS IS THE NEW ROUTE BEING USED WHEN LOGIN IS CLICKED
+
 router.post("/login", (req,res) => {
   User.findOne({
     where: {
-      email: req.body.email
+      email: req.body.email // find user that matches the email typed in
     } 
   })
-  .then((foundUser) => {
+  .then((foundUser) => { // new variable foundUser
     if (!foundUser) {
-      res.status(404).json({ message: "Incorrect credentials." });
+      res.status(404).json({ message: "Incorrect credentials." }); // email wrong error
       return;
     }
-    const validPass = foundUser.checkPassword(req.body.password)
+    const validPass = foundUser.checkPassword(req.body.password) // check password function to verify password, new variable for validPass 
 
     if(!validPass) {
-      res.status(404).json({ message: "Incorrect credentials." });
+      res.status(404).json({ message: "Incorrect credentials." }); // password wrong error
       return;
     }
     console.log("logged in")
     req.session.save( () => {
-      req.session.loggedIn = true
-      req.session.userId = foundUser.id 
+      req.session.loggedIn = true // session included 
+      req.session.userId = foundUser.id // verifying user
       res.json({
         foundUser,
         message: "Logged In"
@@ -29,6 +31,7 @@ router.post("/login", (req,res) => {
     })
   })
 })
+// ---------------------
 
 router.get("/", (req, res) => {
   User.findAll({

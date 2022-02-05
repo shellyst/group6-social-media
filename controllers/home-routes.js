@@ -2,7 +2,7 @@ const router = require('express').Router()
     // const sequelize = require('../config/connection')
 const { Post, User, Comment } = require('../models')
 
-// route to login
+// THIS IS NO LONGER THE LOGIN ROUTE, THIS WILL ONLY LOAD LOGIN PAGE. NEW WORKING ONE IN USER-ROUTES
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
         res.redirect('/')
@@ -11,6 +11,8 @@ router.get('/login', (req, res) => {
     console.log("Login route is working");
     res.render('login');
 });
+
+// this route renders singup page - not to be confused with POST user route in user-routes.js
 
 router.get('/signup', (req, res) => {
     /* if (req.session.loggedIn) {
@@ -21,7 +23,7 @@ router.get('/signup', (req, res) => {
     res.render('signup');
 });
 
-// tentative route to display all posts(and there comments) assuming user is logged in - this will still require session to work properly.
+// display all posts(and there comments) assuming user is logged in - this will still require session to work properly.
 router.get('/', (req, res) => {
     console.log(req.session)
     Post.findAll({

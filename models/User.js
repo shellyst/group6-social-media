@@ -1,10 +1,11 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
-const bcrypt = require("bcrypt")
+const bcrypt = require("bcrypt") // added bcrypt
 
 class User extends Model {
+  // including bcrypt in user model for the password hashing
   checkPassword(signInPass) {
-    return bcrypt.compareSync(signInPass, this.password)
+    return bcrypt.compareSync(signInPass, this.password) // created signInPass var here
   }
 }
 
