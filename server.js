@@ -1,44 +1,41 @@
 const session = require("express-session");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
-const path = require('path');
-const express = require('express');
-const exphbs = require('express-handlebars');
-const routes = require('./controllers');
-const sequelize = require('./config/connection');
-const { json } = require('express/lib/response');
+const path = require("path");
+const express = require("express");
+const exphbs = require("express-handlebars");
+const routes = require("./controllers");
+const sequelize = require("./config/connection");
+const { json } = require("express/lib/response");
 
 const app = express();
 const PORT = process.env.PORT || 3002;
 
 const hbs = exphbs.create({});
 
-// RE INITIALIZED SESSION AND COOKIES
+// Initializes session and uses cookies to store session information.
 const sess = {
-    secret: "Super secret secret",
-    cookie: {},
-    resave: false,
-    saveUninitialized: true,
-    store: new SequelizeStore({
-      db: sequelize,
-    }),
-  };
-  
+  secret: "Super secret secret",
+  cookie: {},
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize,
+  }),
+};
+
 app.use(session(sess));
 
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
+app.engine("handlebars", hbs.engine);
+app.set("view engine", "handlebars");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, "public")));
 
-//turn on Routes
+// Turns on routes.
 app.use(routes);
 
-// turn on connection to db and server
-// we use the sequelize.sync() method to establish the connection to the database
-// The "sync" part means that this is Sequelize taking the models and connecting them to associated database tables.
-// If it doesn't find a table, it'll create it for you!
+// Turns on connection and establishes the database.
 sequelize.sync({ force: false }).then(() => {
-    app.listen(PORT, () => console.log('Now Listening on port ' + PORT));
+  app.listen(PORT, () => console.log("Now Listening on port " + PORT));
 });
