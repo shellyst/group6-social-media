@@ -4,13 +4,14 @@ const { Post, User, Comment } = require('../models')
 
 // route to login
 router.get('/login', (req, res) => {
-    /* if (req.session.loggedIn) {
+    if (req.session.loggedIn) {
         res.redirect('/')
         return
-    } */
+    } 
     console.log("Login route is working");
     res.render('login');
 });
+
 router.get('/signup', (req, res) => {
     /* if (req.session.loggedIn) {
         res.redirect('/')
@@ -50,7 +51,7 @@ router.get('/', (req, res) => {
             res.render('homepage', {
                 layout: 'main',
                 posts,
-                //loggedIn: req.session.loggedIn
+                loggedIn: req.session.loggedIn
             });
         })
         .catch(err => {

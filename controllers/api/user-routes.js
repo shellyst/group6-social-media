@@ -1,6 +1,35 @@
 const router = require("express").Router();
 const { User, Post, Comment } = require("../../models");
 
+router.post("/login", (req,res) => {
+  User.findOne({
+    where: {
+      email: req.body.email
+    } 
+  })
+  .then((foundUser) => {
+    if (!foundUser) {
+      res.status(404).json({ message: "Incorrect credentials." });
+      return;
+    }
+    const validPass = foundUser.checkPassword(req.body.password)
+
+    if(!validPass) {
+      res.status(404).json({ message: "Incorrect credentials." });
+      return;
+    }
+    console.log("logged in")
+    req.session.save( () => {
+      req.session.loggedIn = true
+      req.session.userId = foundUser.id 
+      res.json({
+        foundUser,
+        message: "Logged In"
+      })
+    })
+  })
+})
+
 router.get("/", (req, res) => {
   User.findAll({
     attributes: { exclude: ["password"] },
