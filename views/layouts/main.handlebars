@@ -21,20 +21,22 @@
 
     <!-- header section starts  -->
     <header class="header">
-        <!--<a href="#" class="logo">
+        <a href="#" class="logo">
             <img src="/images/petbook_logo.png" alt="">
-        </a>-->
+        </a>
         <nav class="navbar">
             {{#if loggedIn}}
-            <!--
-            <a href="#home">Home</a>
+            
+            <!-- RE INCLUDED THE SIGN IN NAV BAR, ITS WORKING NOW -->
+
+            <a href="/">Home</a>
             <a href="#contact">Help Support</a>
-            <a href="#dashboard">Dashboard</a>
-             <a href="/dashboard/create/" class="navbar-item is-hoverable pt-1 mr-4">Create post</a>
-            <a href="/login.html" class="btn">Log out</a>
-            -->
+            <a href="/dashboard">My Post</a>
+            <a href="/create-post" class="navbar-item is-hoverable pt-1 mr-4">Create post</a>
+            <button id="logout" class="btn">Log out</button>
+            
             {{else}}
-            <a href="#home">Home</a>
+            <a href="/">Home</a>
             <a href="/login">Login</a>
             <a href="/signup">Signup</a>
             <a href="/dashboard">Dashboard</a>
@@ -71,7 +73,9 @@
     <!-- footer section ends -->
 
     <!-- custom js file link  -->
-    <!--<script src="/javascript/script.js"></script>-->
+  <script src="/javascript/logout.js"></script>
+
+
 
 </body>
 </html>
