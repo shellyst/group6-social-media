@@ -1,69 +1,59 @@
 const router = require("express").Router();
 const { User, Post, Comment } = require("../../models");
 
-// THIS IS THE NEW ROUTE BEING USED WHEN LOGIN IS CLICKED
-
-router.post("/login", (req,res) => {
+router.post("/login", (req, res) => {
   User.findOne({
     where: {
-      email: req.body.email // find user that matches the email typed in
-    } 
-  })
-  .then((foundUser) => { // new variable foundUser
+      email: req.body.email, // Finds user based on email.
+    },
+  }).then((foundUser) => {
+    // new variable foundUser
     if (!foundUser) {
       res.status(404).json({ message: "Incorrect credentials." }); // email wrong error
       return;
     }
-    const validPass = foundUser.checkPassword(req.body.password) // check password function to verify password, new variable for validPass 
+    const validPass = foundUser.checkPassword(req.body.password); // check password function to verify password, new variable for validPass
 
-    if(!validPass) {
+    if (!validPass) {
       res.status(404).json({ message: "Incorrect credentials." }); // password wrong error
       return;
     }
-    console.log("logged in")
-    req.session.save( () => {
-      req.session.loggedIn = true // session included 
-      req.session.userId = foundUser.id // verifying user
+    console.log("logged in");
+    req.session.save(() => {
+      req.session.loggedIn = true; // session included
+      req.session.userId = foundUser.id; // verifying user
       res.json({
         foundUser,
-        message: "Logged In"
-      })
-      // res.render('/layouts/main')
-    })
-  })
-})
-// ---------------------
-
+        message: "Logged In",
+      });
+    });
+  });
+});
 
 // create Signup
-router.post('/signup', (req, res) => {
+router.post("/signup", (req, res) => {
   User.create({
     username: req.body.username,
     email: req.body.email,
     password: req.body.password,
-  })
-  .then(dbUserData => {
-  
-   console.log(dbUserData);
-      
-      res.status(200).end()
+  }).then((dbUserData) => {
+    console.log(dbUserData);
+
+    res.status(200).end();
   });
 });
 
-
-
 // logout route
-router.post('/logout', (req, res) => {
-  console.log(req.session)
+router.post("/logout", (req, res) => {
+  console.log(req.session);
   if (req.session.loggedIn) {
     req.session.destroy(() => {
-      res.status(200).end()
-    })
+      res.status(200).end();
+    });
+  } else {
+    res.status(404).end();
   }
-  else {
-    res.status(404).end()
-  }
-})
+});
 
 router.get("/", (req, res) => {
   User.findAll({
@@ -86,13 +76,7 @@ router.get("/:id", (req, res) => {
     include: [
       {
         model: Post,
-        attributes: [
-          "id",
-          "author_id",
-         "title",
-          "content_text",
-          
-        ],
+        attributes: ["id", "author_id", "title", "content_text"],
       },
       {
         model: Comment,
@@ -112,7 +96,6 @@ router.get("/:id", (req, res) => {
       res.status(500).json(err);
     });
 });
-
 
 // Update a user.
 router.put("/:id", (req, res) => {
