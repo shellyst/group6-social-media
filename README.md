@@ -5,10 +5,10 @@ https://infinite-escarpment-26658.herokuapp.com/
 ## Table of Contents
 
 - [Description](#description)
+- [Heroku](#heroku)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Preview](#preview)
-- [Heroku](#heroku)
 - [Contributors](#contributors)
 
 ## Description
@@ -16,6 +16,10 @@ https://infinite-escarpment-26658.herokuapp.com/
 This application is designed as a social media app, which allows users to create, edit, and delete posts about their pets, or any animals they want. As a full-stack application, it uses Node.js and Express.js to create a RESTful API, using MySQL and the Sequelize ORM for the database, and Handlebars.js as the template engine.
 
 Our application uses both GET and POST routes for retrieving and adding new data, and includes user authentication using express-session and cookies, as well as protects API keys and other sensitive information using environment variables.
+
+## Heroku
+
+[View Deployed App](https://infinite-escarpment-26658.herokuapp.com/)
 
 ## Installation
 
@@ -50,10 +54,6 @@ Once npm packages have been installed, user may use the application using the fo
 ## Preview
 
 [![image.png](https://i.postimg.cc/Vvq1pKnZ/image.png)](https://postimg.cc/SYxwz7Zc)
-
-## Heroku
-
-[View Deployed App](https://infinite-escarpment-26658.herokuapp.com/)
 
 ## Contributors
 
