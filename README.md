@@ -1,7 +1,5 @@
 # Petbook - Group 6 Project Two
 
-https://infinite-escarpment-26658.herokuapp.com/
-
 ## Table of Contents
 
 - [Description](#description)
