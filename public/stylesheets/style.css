@@ -426,6 +426,61 @@ section {
     background-color: grey;
 }
 
+.createpost{
+    margin: 150px;
+    padding: 10px;
+}
+.createpost .title {
+   font-size: 50px;
+   color: white;
+  
+}
+
+.createpost .textcontent 
+{
+    font-size: 20px;
+   
+ 
+}
+
+.createpost .featureimage
+{
+    font-size: 20px;
+
+}
+
+.createpost #post-content{
+    border: 0;
+    padding: 10px 8px;
+    min-height: 40px;
+    font-size: 20px;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.createpost #post-image{
+    border: 0;
+    padding: 10px 8px;
+    min-height: 40px;
+    font-size: 20px;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.createpost .createpostbtn{
+    border: 0;
+    padding: 10px 5px;
+    outline: none;
+    min-height: 30px;
+    font-size: 20px;
+    border-radius: 4px;
+    background-color: white;
+}
+
+.backtodashboard a{
+font-size: 40px;
+}
+
 #frontSide {
     display: none;
 }
