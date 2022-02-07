@@ -16,13 +16,14 @@ router.get('/', (req, res) => {
     console.log(req.session);
     Post.findAll({
         where: {
-            author_id: req.session.userId
+            author_id: req.session.userId // Earlier, it was author_id: req.session.userId
         },
         attributes: [
             'id',
             'author_id',
             'created_at',
             'content_text',
+            'featured_image'
         ],
         include: [
             {
