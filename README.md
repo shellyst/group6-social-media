@@ -6,6 +6,7 @@
 - [Installation](#installation)
 - [Usage](#usage)
 - [Preview](#preview)
+- [Heroku](#heroku)
 - [Contributors](#contributors)
 
 ## Description
@@ -47,6 +48,10 @@ Once npm packages have been installed, user may use the application using the fo
 ## Preview
 
 [![image.png](https://i.postimg.cc/Vvq1pKnZ/image.png)](https://postimg.cc/SYxwz7Zc)
+
+## Heroku
+
+[View Deployed App](https://infinite-escarpment-26658.herokuapp.com/)
 
 ## Contributors
 
