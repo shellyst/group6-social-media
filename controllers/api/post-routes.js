@@ -58,13 +58,10 @@ router.get('/:id', (request, response) => {
 router.post('/', (request, response) => {
     /* Input expects a JSON object that's similar to the following format:
     {
-        'author_id': Integer, can't be null
-        'post_type': String, can't be null
-        'featured_image': String, can be null
-        'content_text': String, can be null
-        'content_link': String, can be null or URL
-        'video': String, can be null or URL
-    } 
+        "author_id": 1,
+        "post_type": "1",
+        "featured_image": "https://i.imgur.com/Vra4zi2.jpeg"
+    }
     */
 
     Post.create({

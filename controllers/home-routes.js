@@ -7,7 +7,7 @@ router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
         res.redirect('/')
         return
-    } 
+    }
     console.log("Login route is working");
     res.render('login');
 });
@@ -23,7 +23,26 @@ router.get('/signup', (req, res) => {
     res.render('signup');
 });
 
-// display all posts(and there comments) assuming user is logged in - this will still require session to work properly.
+router.get('/dashboard', (req, res) => {
+    /* if (req.session.loggedIn) {
+        res.redirect('/')
+        return
+    } */
+    console.log("dashboard route is working");
+    res.render('dashboard');
+});
+
+router.get('/create-post', (req, res) => {
+    // if (req.session.loggedIn) {
+    //     res.redirect('/')
+    //     return
+    // }
+    console.log("create-post route is working");
+    res.render('create-post');
+});
+
+
+// tentative route to display all posts(and there comments) assuming user is logged in - this will still require session to work properly.
 router.get('/', (req, res) => {
     console.log(req.session)
     Post.findAll({

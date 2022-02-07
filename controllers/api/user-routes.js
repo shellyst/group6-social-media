@@ -28,6 +28,7 @@ router.post("/login", (req,res) => {
         foundUser,
         message: "Logged In"
       })
+      // res.render('/layouts/main')
     })
   })
 })
