@@ -1,21 +1,21 @@
-<section>
+<section class="createpost">
   
   <h2 class="title">create new blog post</h2><hr>
 
   <form class="new-post-form">
     <div>
-      <label for="post-content">Text content:</label>
+      <label for="post-content" class="textcontent">Text content:</label>
       <input class="input" type="text" id="post-content" name="post-content" placeholder="blog content "/>
     </div>
     <div>
-      <label for="post-image">URL of image to feature in the post:</label>
-      <input class="textarea is-large" id="post-image" name="post-image" placeholder="blog image "/>
+      <label for="post-image" class="featureimage">Add URL of image :</label>
+      <input  id="post-image" name="post-image" placeholder="blog image "/>
     </div>
-    <button type="submit" class="button is-primary is-pulled-right">create post</button>
+    <button type="submit" class="createpostbtn">create post</button>
   </form>
 </section>
-<div>
-    <a  href="/dashboard" class="is-pulled-right" id="cback"> &laquo;back to dashboard</a>
+<div class="backtodashboard">
+    <a  href="/dashboard"  id="cback"> &laquo;back to dashboard</a>
   
 
 </div>
