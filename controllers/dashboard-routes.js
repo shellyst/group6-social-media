@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
     console.log(req.session);
     Post.findAll({
         where: {
-            author_id: req.session.userId // Earlier, it was author_id: req.session.userId
+            author_id: req.session.userId 
         },
         attributes: [
             'id',
@@ -99,8 +99,9 @@ router.get('/edit/:id', (req, res) => {
         });
 });
 
-router.get('/create/', (req, res) => {
-    Post.findAll({
+router.get('/create', (req, res) => {
+    res.render('create-post');
+    /* Post.findAll({
             where: {
 
                 user_id: req.session.user_id
@@ -132,7 +133,28 @@ router.get('/create/', (req, res) => {
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
-        });
+        }); */
+});
+
+router.post('/create/publish', (req, res) => {
+    /* Input expects a JSON object that's similar to the following format:
+    {
+        "author_id": 1,
+        "featured_image": "https://i.imgur.com/Vra4zi2.jpeg",
+        "content_text": "https://i.imgur.com/Vra4zi2.jpeg"
+    }
+    */
+
+    Post.create({
+        author_id: req.session.userId,
+        featured_image: req.body.featured_image,
+        content_text: req.body.content_text,
+    })
+    // Process the JSON input
+    .then(jsonInput => res.json(jsonInput))
+    .catch(error => {
+        response.status(500).json(error);
+    });
 });
 
 
