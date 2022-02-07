@@ -23,14 +23,14 @@ router.get('/signup', (req, res) => {
     res.render('signup');
 });
 
-router.get('/dashboard', (req, res) => {
+//router.get('/dashboard', (req, res) => {
     /* if (req.session.loggedIn) {
         res.redirect('/')
         return
     } */
-    console.log("dashboard route is working");
+    /* console.log("dashboard route is working");
     res.render('dashboard');
-});
+}); */
 
 router.get('/create-post', (req, res) => {
     // if (req.session.loggedIn) {
@@ -68,6 +68,7 @@ router.get('/', (req, res) => {
             ]
         })
         .then(dbPostData => {
+            console.log(dbPostData);
             const posts = dbPostData.map(post => post.get({ plain: true }));
             res.render('homepage', {
                 layout: 'main',

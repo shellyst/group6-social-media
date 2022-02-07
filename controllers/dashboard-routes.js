@@ -2,50 +2,55 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
 
-router.get('/dashboard', (req, res) => {
-    /* if (req.session.loggedIn) {
+ router.get('/dashboard', (req, res) => {
+     /* if (req.session.loggedIn) {
         res.redirect('/')
         return
-    } */
-    console.log("dashboard route is working");
+    }  */
+    console.log("dashboard route 1 is working");
     res.render('dashboard');
-});
+}); 
 
 router.get('/', (req, res) => {
+    console.log("dashboard route 2 is working");
+    console.log(req.session);
     Post.findAll({
-            where: {
-
-                user_id: req.session.user_id
-            },
-            attributes: [
-                'id',
-                'title',
-                'created_at',
-                'post_content',
-            ],
-            include: [{
-                    model: Comment,
-                    attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-                    include: {
-                        model: User,
-                        attributes: ['username']
-                    }
-                },
-                {
+        where: {
+            author_id: req.session.userId
+        },
+        attributes: [
+            'id',
+            'author_id',
+            'created_at',
+            'content_text',
+        ],
+        include: [
+            {
+                model: Comment,
+                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+                include: {
                     model: User,
                     attributes: ['username']
                 }
-            ]
-        })
-        .then(dbPostData => {
-
-            const posts = dbPostData.map(post => post.get({ plain: true }));
-            res.render('dashboard', { posts, loggedIn: true });
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
+            },
+            {
+                model: User,
+                attributes: ['username']
+            }
+        ]
+    })
+    .then(dbPostData => {
+        console.log(dbPostData);
+        let posts = '';
+        if (dbPostData != null) {
+            posts = dbPostData.map(post => post.get({ plain: true }));
+        }
+        res.render('dashboard', { posts, loggedIn: true });
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
 });
 
 router.get('/edit/:id', (req, res) => {
