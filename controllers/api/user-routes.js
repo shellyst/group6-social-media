@@ -24,11 +24,14 @@ router.post("/login", (req, res) => {
       req.session.userId = foundUser.id; // verifying user
       res.json({
         foundUser,
-        message: "Logged In",
-      });
-    });
-  });
-});
+        message: "Logged In"
+      })
+      // res.render('/layouts/main')
+    })
+  })
+})
+// ---------------------
+
 
 // create Signup
 router.post("/signup", (req, res) => {

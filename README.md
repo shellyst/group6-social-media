@@ -50,4 +50,4 @@ Once npm packages have been installed, user may use the application using the fo
 
 ## Contributors
 
-Quinn Pucci, Michelle Stone, Daniel Yoshizawa, Suthan Kathir, Tomi Solaja
+Quinn Pucci, Michelle Stone, Daniel Yoshizawa, Suthan Kathir, Huzaifa Mohammed, Tomi Solaja

@@ -56,6 +56,13 @@ router.get('/:id', (request, response) => {
 
 // Post a single post
 router.post('/', (request, response) => {
+    /* Input expects a JSON object that's similar to the following format:
+    {
+        "author_id": 1,
+        "post_type": "1",
+        "featured_image": "https://i.imgur.com/Vra4zi2.jpeg"
+    }
+    */
 
     Post.create({
         author_id: request.body.author_id,
