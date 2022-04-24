@@ -15,6 +15,10 @@ This application is designed as a social media app, which allows users to create
 
 Our application uses both GET and POST routes for retrieving and adding new data, and includes user authentication using express-session and cookies, as well as protects API keys and other sensitive information using environment variables.
 
+## Goals and Obstacles
+
+Petbook is designed to give pet lovers a chance to engage in the social media world without ever having to engage with people! Users can post and share their own pets, or discuss and admire the pets of others! A challenge during this project was a lack of communication between the front and back end team, which resulted in a weaker front-end. Our group managed to work together to fix front-end issues, in order to have a completed final project.
+
 ## Heroku
 
 [View Deployed App](https://infinite-escarpment-26658.herokuapp.com/)
